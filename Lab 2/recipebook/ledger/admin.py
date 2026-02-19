@@ -11,7 +11,4 @@ class RecipeIngredientInline(admin.TabularInline):
 class RecipeAdmin(admin.ModelAdmin):
     inlines = [RecipeIngredientInline]
     list_display = ("name",)
-
-
-# Optional but helpful for data entry
-admin.site.register(Ingredient)
+    
