@@ -12,4 +12,3 @@ class RecipeAdmin(admin.ModelAdmin):
     inlines = [RecipeIngredientInline]
     list_display = ("name",)
 
-admin.site.register(Ingredient)
