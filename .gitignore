@@ -7,3 +7,8 @@ __pycache__/
 .venv/
 env/
 myenv/
+
+Lab 2/recipebook/db.sqlite3
+Lab 2/.venv/
+Lab 2/recipebook/.venv/
+
