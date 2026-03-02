@@ -1,14 +1,14 @@
-db.sqlite3
-.env
+# Python / Django
+__pycache__/
 *.pyc
 *.log
+db.sqlite3
+.env
 
-__pycache__/
+# Virtual environments
 .venv/
-env/
+venv/
 myenv/
 
-Lab 2/recipebook/db.sqlite3
-Lab 2/.venv/
-Lab 2/recipebook/.venv/
-
+# macOS
+.DS_Store
