@@ -1,5 +1,6 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import get_object_or_404, render
+from django.urls import reverse_lazy
 from django.views.generic.edit import CreateView
 
 from .forms import RecipeForm, RecipeImageForm
@@ -52,4 +53,4 @@ class RecipeImageCreateView(LoginRequiredMixin, CreateView):
         return context
 
     def get_success_url(self):
-        return self.recipe.get_absolute_url()
+        return reverse_lazy("recipe_detail", kwargs={"pk": self.recipe.pk})
