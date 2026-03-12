@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block page_heading %}Recipe Detail{% endblock %}
+{% block content %}
+  <h3>{{ recipe.name }}</h3>
+
+  <p>
+    <strong>Author:</strong>
+    {% if recipe.author %}
+      {{ recipe.author.name }}
+    {% else %}
+      (No author set)
+    {% endif %}
+  </p>
+
+  <h4>Ingredients</h4>
+  <ul>
+    {% for ingredient in recipe.ingredients.all %}
+      <li>{{ ingredient.ingredient.name }} - {{ ingredient.quantity }}</li>
+    {% empty %}
+      <li>No ingredients added yet.</li>
+    {% endfor %}
+  </ul>
+
+  <h4>Images</h4>
+  {% for recipe_image in recipe.images.all %}
+    <div>
+      <img src="{{ recipe_image.image.url }}" alt="{{ recipe_image.description }}" width="300">
+      <p>{{ recipe_image.description }}</p>
+    </div>
+  {% empty %}
+    <p>No images uploaded yet.</p>
+  {% endfor %}
+
+  {% if user.is_authenticated %}
+    <p><a href="{% url 'recipe_add_image' recipe.pk %}">Add Image</a></p>
+  {% endif %}
+
+  <p><a href="{% url 'recipe_list' %}">Back to list</a></p>
+{% endblock %}
